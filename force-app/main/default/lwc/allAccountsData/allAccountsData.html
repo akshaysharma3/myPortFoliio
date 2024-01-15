@@ -1,0 +1,29 @@
+<!--
+  @description       : 
+  @author            : Akshay Sharma
+  @group             : 
+  @last modified on  : 11-02-2021
+  @last modified by  : Akshay Sharma
+-->
+<template>
+    <lightning-card title="Accounts With Contacts" icon-name="standard:account">
+        <br />
+        <div style="width: auto;">
+
+            <template if:true={data}>
+                <!-- <div class="slds-var-m-bottom_small slds-var-p-around_small">
+                    <lightning-button label="Collapse All" onclick={collapseAll}> </lightning-button>
+                    <lightning-button label="Expand All" onclick={expandAll}></lightning-button>
+                </div>
+                <lightning-datatable class="slds-table_striped" data={data} columns={columns} key-field="id"
+                    sorted-by={sortBy} sorted-direction={sortDirection} onsort={doSorting} hide-checkbox-column="true">
+                </lightning-datatable> -->
+
+                <lightning-tree-grid columns={columns} data={data} key-field="accId" hide-checkbox-column=true
+                    class="slds-table_striped" onrowaction={handleRowAction}>
+                </lightning-tree-grid>
+            </template>
+        </div>
+    </lightning-card>
+
+</template>

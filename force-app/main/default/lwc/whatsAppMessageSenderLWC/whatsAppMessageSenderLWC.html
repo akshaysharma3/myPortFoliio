@@ -1,0 +1,26 @@
+<!--
+  @description       : 
+  @author            : Akshay Sharma
+  @group             : 
+  @last modified on  : 11-03-2021
+  @last modified by  : Akshay Sharma
+-->
+<template>
+    <lightning-card title="Send WhatsApp Message">
+        <div class="row slds-var-p-around_small">
+            <lightning-input type="text" name="Mobile" label="Mobile Number"
+                placeholder="Please prefix country code before number" value={mobileNo} onchange={updateMobileNumber}>
+            </lightning-input>
+            <lightning-input type="text" name="Message" label="Message" placeholder="Message Body Goes Here..."
+                value={message} onchange={updateMessage}></lightning-input>
+        </div>
+        <div class="row slds-var-p-around_small">
+            <p>
+                <lightning-button variant="brand" label="Send Message" title="Send Message"
+                    onclick={sendWhatsappMessage}>
+                </lightning-button>
+            </p>
+        </div>
+    </lightning-card>
+
+</template>

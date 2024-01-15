@@ -1,0 +1,56 @@
+<!--=================================================================
+  @description       : This Component is used to Refresh Current Exchange Rates Based on a Base Currency
+  @author            : Akshay Sharma
+  @last modified on  : 03-02-2021
+  @last modified by  : Akshay Sharma
+  Modifications Log 
+  Ver   Date         Author          Modification
+
+====================================================================-->
+<template>
+
+    <lightning-card title="Current Exchange Rates">
+        <div class="slds-p-around_small">
+            <lightning-button label="Refresh Exchange Rates" title="Get Exchange Rates" variant="neutral"
+                onclick={handleClick}></lightning-button>
+        </div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_2-of-6">
+                <div class="slds-p-around_small">
+                    <lightning-combobox name="select" label="Base Currency" value={value} placeholder="Select Currency"
+                        options={options} onchange={handleChange}></lightning-combobox>
+                </div>
+            </div>
+            <div class="slds-col slds-size_4-of-6" style="padding-top: 1.5rem;">
+                <div class="slds-p-around_small">
+                    <div class="slds-scrollable">
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th class="slds-text-title_caps" scope="col">
+                                        <div class="slds-truncate" title="Currency Code">Currency Code</div>
+                                    </th>
+                                    <th class="slds-text-title_caps" scope="col">
+                                        <div class="slds-truncate" title="Exchange rate">Exchange rate</div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={exchangeData} for:item="exch">
+                                    <tr class="slds-hint-parent" key={exch.currencyCode}>
+                                        <td>
+                                            <div class="slds-truncate" title="Currency Code">{exch.currencyCode}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" title="Exchange rate">{exch.rate}</div>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
